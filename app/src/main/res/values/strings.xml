@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CrowdSourcing</string>
+    <string name="welcome_to_crowdsourcing_project">Welcome to CrowdSourcing Project</string>
+    <string name="get_started">Get Started</string>
+</resources>
