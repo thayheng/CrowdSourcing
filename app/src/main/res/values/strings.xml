@@ -2,4 +2,10 @@
     <string name="app_name">CrowdSourcing</string>
     <string name="welcome_to_crowdsourcing_project">Welcome to CrowdSourcing Project</string>
     <string name="get_started">Get Started</string>
+    <string name="title_activity_graph">GraphActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

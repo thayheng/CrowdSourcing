@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".GraphActivity"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    >
+
+    <com.androidplot.xy.XYPlot
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/APDefacto.Dark"
+        android:id="@+id/plot"
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        ap:title="A Simple XY Plot"
+        app:renderMode="use_background_thread"
+        ap:lineLabels="left|bottom"
+        ap:lineLabelRotationBottom="-45"/>
+
+</LinearLayout>

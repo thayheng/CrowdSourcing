@@ -8,13 +8,10 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface WiFiDao {
-    @Query("SELECT * FROM WIFI GROUP BY timestamp")
-    List<WiFi> getALL();
+public interface WiFiCountDao {
+    @Query("SELECT * FROM WifiCount ORDER BY timeStamp DESC LIMIT 10")
+    List<WifiCount> getALL();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(WiFi wiFi);
-
-    @Query("SELECT COUNT(macAddress) FROM WIFI GROUP BY timestamp")
-    int getCount();
+    void insert(WifiCount wifiCount);
 }
