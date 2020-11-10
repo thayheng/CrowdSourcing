@@ -30,10 +30,17 @@ class WifiReceiver extends BroadcastReceiver {
             sb = new StringBuilder();
             List<ScanResult> wifiList = wifiManager.getScanResults();
             ArrayList<String> deviceList = new ArrayList<>();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             for (ScanResult scanResult : wifiList) {
                 sb.append("\n").append(scanResult.SSID).append(" - ").append(scanResult.capabilities);
                 deviceList.add(scanResult.SSID + " - " + scanResult.capabilities);
-                Log.d(TAG, "onReceive: " + scanResult.SSID + " :::: " + scanResult.timestamp);
+                Log.d(TAG, "onReceive: " + scanResult.BSSID + " :::: " + scanResult.timestamp);
+                WiFi wiFi = new WiFi(scanResult.timestamp,scanResult.SSID,scanResult.BSSID);
+                DatabaseClient.getInstance(context).insert(wiFi);
             }
             //Toast.makeText(context, sb, Toast.LENGTH_SHORT).show();
             //ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, deviceList.toArray());

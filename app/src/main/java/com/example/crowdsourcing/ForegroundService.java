@@ -25,7 +25,7 @@ public class ForegroundService extends Service {
     private WifiReceiver receiverWifi;
     private WifiManager wifiManager;
 
-    private static final int HANDLE_DELAY_TIME_CHECK = 10 * 1000;
+    private static final int HANDLE_DELAY_TIME_CHECK = 60 * 1000;
     private static final int HANDLE_WIFI_CHECK = 5;
 
     private final Handler mHandler = new Handler(new Handler.Callback() {

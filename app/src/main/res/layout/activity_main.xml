@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <TextView
@@ -20,6 +21,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054" />
+
+    <com.androidplot.xy.XYPlot
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_to_crowdsourcing_project"
+        style="@style/APDefacto.Dark"
+        android:id="@+id/plot"
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        ap:title="A Simple XY Plot"
+        app:renderMode="use_background_thread"
+        ap:lineLabels="left|bottom"
+        ap:lineLabelRotationBottom="-45"/>
 
     <Button
         android:id="@+id/GetStarted"
