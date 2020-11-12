@@ -42,4 +42,8 @@ public class DatabaseClient {
         return appDatabase.WiFiDao().getALL();
     }
 
+    public int getCountByTimeStamp(Long timestamp) {
+        return appDatabase.WiFiDao().getCount(timestamp);
+    }
+
 }

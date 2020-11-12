@@ -43,11 +43,6 @@ class WifiReceiver extends BroadcastReceiver {
                 DatabaseClient.getInstance(context).insert(wiFi);
             }
 
-            if (wifiList.size() > 0) {
-                WifiCount wifiCount = new WifiCount(currentTime, wifiList.size());
-                DatabaseClient.getInstance(context).getAppDatabase().wiFiCountDao().insert(wifiCount);
-            }
-
             //Toast.makeText(context, sb, Toast.LENGTH_SHORT).show();
             //ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, deviceList.toArray());
             //wifiDeviceList.setAdapter(arrayAdapter);

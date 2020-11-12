@@ -9,12 +9,12 @@ import java.util.List;
 
 @Dao
 public interface WiFiDao {
-    @Query("SELECT * FROM WIFI GROUP BY timestamp")
+    @Query("SELECT * FROM WIFI GROUP BY timestamp ORDER BY timeStamp DESC LIMIT 10")
     List<WiFi> getALL();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(WiFi wiFi);
 
-    @Query("SELECT COUNT(macAddress) FROM WIFI GROUP BY timestamp")
-    int getCount();
+    @Query("SELECT COUNT(timestamp) FROM WIFI WHERE timestamp=:timestamp")
+    int getCount(long timestamp);
 }

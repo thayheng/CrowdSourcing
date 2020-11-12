@@ -54,18 +54,31 @@ public class GraphActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        wifiCountList = DatabaseClient.getInstance(getApplicationContext())
-                .getAppDatabase().wiFiCountDao().getALL();
+       /* wifiCountList = DatabaseClient.getInstance(getApplicationContext())
+                .getAppDatabase().wiFiCountDao().getALL();*/
+
+        List<WiFi> tmpList = DatabaseClient.getInstance(getApplicationContext()).getList();
+        for (WiFi wiFi : tmpList) {
+            int count = DatabaseClient.getInstance(getApplicationContext()).getCountByTimeStamp(wiFi.timestamp);
+            WifiCount wifiCount = new WifiCount(wiFi.timestamp, count);
+            wifiCountList.add(wifiCount);
+        }
+
         initGraph();
     }
 
     private void initGraph() {
-        final Number[] domainLabels = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        //final Number[] domainLabels = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        if (wifiCountList.size() == 0) {
+            return;
+        }
+        List<Number> domainLabels = new ArrayList<>();
         List<Number> series1Numbers = new ArrayList<>();
 
         for (int i = 0; i < wifiCountList.size(); i++) {
             WifiCount wifiCount = wifiCountList.get(i);
             series1Numbers.add(wifiCount.count);
+            domainLabels.add(i + 1);
         }
 
         XYSeries series1 = new SimpleXYSeries(
@@ -84,7 +97,7 @@ public class GraphActivity extends AppCompatActivity {
             @Override
             public StringBuffer format(Object obj, @NonNull StringBuffer toAppendTo, @NonNull FieldPosition pos) {
                 int i = Math.round(((Number) obj).floatValue());
-                return toAppendTo.append(domainLabels[i]);
+                return toAppendTo.append(domainLabels.get(i));
             }
 
             @Override
