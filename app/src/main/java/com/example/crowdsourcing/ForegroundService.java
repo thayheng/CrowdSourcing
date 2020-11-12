@@ -52,7 +52,6 @@ public class ForegroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         startReceiver();
-
         new Thread(){
             @Override
             public void run() {

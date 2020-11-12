@@ -10,13 +10,13 @@
     >
 
     <com.androidplot.xy.XYPlot
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         style="@style/APDefacto.Dark"
         android:id="@+id/plot"
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         ap:title="A Simple XY Plot"
         app:renderMode="use_background_thread"
         ap:lineLabels="left|bottom"
